@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4982f62b-8186-4ac9-8ef9-cf35c28696f2" name="Changes" comment="" />
+    <list default="true" id="4982f62b-8186-4ac9-8ef9-cf35c28696f2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/angular/src/app/input/input.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/angular/src/app/input/input.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/angular/src/app/input/input.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/angular/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/angular/tsconfig.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "G:/codegym/furama_casestudy",
+    "last_opened_file_path": "G:/codegym/module_5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -45,6 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1669049288074</updated>
       <workItem from="1669049290762" duration="1564000" />
+      <workItem from="1669190391269" duration="40000" />
+      <workItem from="1669261905681" duration="15253000" />
     </task>
     <servers />
   </component>
