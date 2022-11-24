@@ -8,75 +8,87 @@
 </head>
 <body>
 <div class="container">
-  <h2>Login</h2>
-  <form [formGroup]="rfRegister" (ngSubmit)="onSubmit()">
+  <h2>Register</h2>
+  <form class="was-validated" [formGroup]="rfRegister" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label class="form-label">Email address</label>
       <input type="email" formControlName="email" class="form-control" placeholder="Input email..."
              [ngClass]="rfRegister.controls['email'].invalid ? 'is-invalid' : 'is-valid'"/>
       <div class="invalid-feedback">
-        <div *ngIf="rfRegister.controls['email'].errors?.required">
+        <div *ngIf="rfRegister.controls['email'].errors?.required && (rfRegister.controls['email'].touched)">
           Please fill in
         </div>
       </div>
     </div>
     <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" formControlName="password" class="form-control"/>
+      <label class="form-label">Password</label>
+      <input type="password" formControlName="password" class="form-control"/>
     </div>
     <div class="mb-3">
-            <label class="form-label">Confirm Password</label>
-            <input type="password" formControlName="password" class="form-control"
-                   [ngClass]="rfRegister.errors?.['reConfirmPass'].invalid ? 'is-invalid' : 'is-valid'" />
-            <div class="invalid-feedback">
-              <div *ngIf="rfRegister.errors?.['reConfirmPass']" class="invalid-feedback">
-                Password not match
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Country</label>
-            <select formControlName="country" >
-              <option [ngValue]="c.id" *ngFor="let c of countryList">
-
-              </option>
-            </select>
-            <div class="invalid-feedback">
-              <div *ngIf="rfRegister.controls['name'].errors?.required.touched">
-                Please fill in
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Age</label>
-            <input type="email" formControlName="name" class="form-control" placeholder="Input email..."
-                   [ngClass]="rfRegister.controls['name'].invalid ? 'is-invalid' : 'is-valid'" />
-            <div class="invalid-feedback">
-              <div *ngIf="rfRegister.controls['name'].errors?.required.touched">
-                Please fill in
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Gender</label>
-            <input type="email" formControlName="name" class="form-control" placeholder="Input email..."
-                   [ngClass]="rfRegister.controls['name'].invalid ? 'is-invalid' : 'is-valid'" />
-            <div class="invalid-feedback">
-              <div *ngIf="rfRegister.controls['name'].errors?.required.touched">
-                Please fill in
-              </div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Phone</label>
-            <input type="email" formControlName="name" class="form-control" placeholder="Input email..."
-                   [ngClass]="rfRegister.controls['name'].invalid ? 'is-invalid' : 'is-valid'" />
-            <div class="invalid-feedback">
-              <div *ngIf="rfRegister.controls['name'].errors?.required.touched">
-                Please fill in
-              </div>
-            </div>
-          </div>
+      <label class="form-label">Confirm Password</label>
+      <input type="password" formControlName="confirmPassword" class="form-control"
+             [ngClass]="rfRegister.errors?.reConfirmPass ? 'is-invalid' : 'is-valid'"/>
+      <div class="invalid-feedback">
+        <div *ngIf="rfRegister.errors?.reConfirmPass" class="invalid-feedback">
+          Password not match...
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Country</label>
+      <select formControlName="country" [ngClass]="rfRegister.controls['country'].invalid?'is-invalid':'is-valid'">
+        <option value="" selected>Country</option>
+        <option type="text" value="Korean">Korean</option>
+        <option type="text" value="America">America</option>
+        <option type="text" value="Japan">Japan</option>
+        <option type="text" value="France">France</option>
+      </select>
+      <div class="invalid-feedback">
+        <div *ngIf="rfRegister.controls['country'].errors?.required && rfRegister.controls['country'].touched " >
+          Please provide country
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Age</label>
+      <input type="number" formControlName="age" class="form-control"
+             [ngClass]="rfRegister.controls['age'].invalid ? 'is-invalid' : 'is-valid'"/>
+      <div class="invalid-feedback">
+        <div *ngIf="rfRegister.controls['age'].errors?.required && rfRegister.controls['age'].touched ">
+          Please provide age
+        </div>
+        <div *ngIf="rfRegister.controls['age'].errors?.min && rfRegister.controls['age'].touched">
+          Please provide age greater 18 years old
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <input formControlName="gender" value="Male" type="radio"
+             [ngClass]="rfRegister.controls['gender'].invalid?'is-invalid':'is-valid'">Male
+      <input formControlName="gender" value="Female" type="radio"
+             [ngClass]="rfRegister.controls['gender'].invalid?'is-invalid':'is-valid'">Female
+      <input formControlName="gender" value="LBGT" type="radio"
+             [ngClass]="rfRegister.controls['gender'].invalid?'is-invalid':'is-valid'">LBGT
+      <div class="invalid-feedback">
+        <div *ngIf="rfRegister.controls['gender'].errors?.required ">
+          Please provide gender
+        </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Phone</label>
+      <input formControlName="phone" type="text" class="form-control"
+             [ngClass]="rfRegister.controls['phone'].invalid?'is-invalid':'is-valid'">
+      <div class="invalid-feedback">
+        <div *ngIf="rfRegister.controls['phone'].errors?.required && (rfRegister.controls['phone'].touched)">
+          Please provide phone
+        </div>
+        <div *ngIf="rfRegister.controls['phone'].errors?.pattern && (rfRegister.controls['phone'].touched)">
+          Phone invalid, for example: +84123456789
+        </div>
+      </div>
+    </div>
     <button type="submit" class="btn btn-primary" [disabled]="!rfRegister.valid">Submit</button>
   </form>
 </div>

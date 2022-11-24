@@ -27,9 +27,9 @@ rfRegister: FormGroup;
       password:['',[Validators.minLength(6),Validators.required]],
       confirmPassword:['',[Validators.minLength(6),Validators.required]],
       country:['',[Validators.required]],
-      age:['',[Validators.required,Validators.max(18)]],
+      age:['',[Validators.required,Validators.min(18)]],
       gender:[],
-      phone:[[Validators.required,Validators.pattern("^\\+84\\d{9,10}$")]]
+      phone:['',[Validators.required,Validators.pattern("^\\+84\\d{9,10}$")]]
     },{validators: reConfirmPass})
   }
 
@@ -37,21 +37,5 @@ rfRegister: FormGroup;
     if(this.rfRegister.valid){
       console.log(this.rfRegister.value);
     }
-  }
-
-  countryList: country[] = [
-    new country("1", "Nga"),
-    new country("2", "Mỹ"),
-    new country("3", "Nhật")
-  ]
-}
-
-export class country{
-  id: string;
-  name: string;
-
-  constructor(id: string, name: string) {
-    this.id = id;
-    this.name = name;
   }
 }
