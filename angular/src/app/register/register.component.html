@@ -81,7 +81,7 @@
       <input formControlName="phone" type="text" class="form-control"
              [ngClass]="rfRegister.controls['phone'].invalid?'is-invalid':'is-valid'">
       <div class="invalid-feedback">
-        <div *ngIf="rfRegister.controls['phone'].errors?.required && (rfRegister.controls['phone'].touched)">
+        <div *ngIf="rfRegister.controls['phone'].errors?.required && rfRegister.controls['phone'].touched">
           Please provide phone
         </div>
         <div *ngIf="rfRegister.controls['phone'].errors?.pattern && (rfRegister.controls['phone'].touched)">
