@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Update customer</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
-
-</head>
-<body>
 <div class="container-fluid">
   <div class="p-3">
     <h1>Danh sách sản phẩm</h1>
@@ -18,18 +7,18 @@
         <td>Tên</td>
         <td>Giá</td>
         <td>Mô tả</td>
+        <td>Category</td>
+        <td colspan="2">Actions</td>
       </tr>
       <tr *ngFor="let product of products; index as i">
         <td>{{i + 1}}</td>
         <td>{{product.name}}</td>
         <td>{{product.price}}</td>
         <td>{{product.description}}</td>
+        <td>{{product.category.name}}</td>
+        <td><a [routerLink]="['/product/edit',product.id]">Edit</a></td>
+        <td><a [routerLink]="['/product/delete',product.id]">Delete</a></td>
       </tr>
     </table>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
-        crossorigin="anonymous"></script>
-</body>
-</html>

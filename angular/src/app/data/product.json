@@ -1,0 +1,140 @@
+{
+  "product": [
+    {
+      "name": "IPhone 123",
+      "price": 24000000,
+      "description": "New",
+      "id": 1,
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 2,
+      "name": "IPhone 11",
+      "price": 15600000,
+      "description": "Like New",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 3,
+      "name": "IPhone X",
+      "price": 75400000,
+      "description": "97%",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 4,
+      "name": "IPhone 8",
+      "price": 96800000,
+      "description": "98%",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 5,
+      "name": "IPhone 11 Pro",
+      "price": 18950000,
+      "description": "Like New",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 12,
+      "name": "CHou",
+      "price": 12345,
+      "description": "Brauty",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Chouu",
+      "price": 2345,
+      "description": "beauty",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 167,
+      "name": "chou",
+      "price": 1234,
+      "description": "beauty",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "id": 168,
+      "name": "IPhone",
+      "price": 1234568,
+      "description": "new ",
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "name": "12",
+      "price": 13,
+      "description": "134",
+      "id": 170,
+      "category": {
+        "id": 1,
+        "name": "Iphone"
+      }
+    },
+    {
+      "name": "Chouuu",
+      "price": 1234,
+      "description": "Beauty",
+      "id": 171
+    },
+    {
+      "name": "123",
+      "price": 123,
+      "description": "123",
+      "id": 172
+    },
+    {
+      "name": "123",
+      "price": 123,
+      "description": "12123",
+      "category": {
+        "id": 1,
+        "name": "IPhone"
+      },
+      "id": 173
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "IPhone"
+    },
+    {
+      "id": 2,
+      "name": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "LG"
+    }
+  ]
+}

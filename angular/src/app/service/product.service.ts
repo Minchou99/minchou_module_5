@@ -1,63 +1,39 @@
-import { Injectable } from '@angular/core';
-import {Product} from "../interface/product";
+import {Injectable} from '@angular/core';
+import {Product} from '../interface/product';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {environment} from '../../environments/environment';
+
+const API_URL = `${environment.apiURL_product}`;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  products: Product[]=[{
-    id: 1,
-    name: 'IPhone 12',
-    price: 24000000,
-    description: 'New'
-  },{
-    id: 2,
-    name: 'IPhone 11',
-    price: 15600000,
-    description: 'Like New'
 
-  },{
-    id: 3,
-    name: 'IPhone X',
-    price: 75400000,
-    description: '97%'
-  },{
-    id:4,
-    name: 'IPhone 8',
-    price: 96800000,
-    description: '98%'
-  },{
-    id: 5,
-    name: 'IPhone 11 Pro',
-    price: 18950000,
-    description: 'Like New'
-  }]
-
-  constructor() { }
-
-  getAll(){
-    return this.products;
+  constructor(private httpClient: HttpClient) {
   }
 
-  saveProduct(product) {
-    this.products.push(product);
+  private products: Product[] = [];
+
+  findAll(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(
+      API_URL );
   }
 
-  findById(id: number) {
-    return this.products.find(product => product.id === id);
+  saveProduct(product: Product): Observable<Product> {
+    return this.httpClient.post<Product>(API_URL, product);
   }
 
-  updateProduct(id: number, product: Product) {
-    for (let i = 0; i < this.products.length; i++) {
-      if (this.products[i].id === id) {
-        this.products[i] = product;
-      }
-    }
+  findById(id: number): Observable<Product> {
+    return this.httpClient.get<Product>(`${API_URL}/${id}`);
+  }
+
+  updateProduct(id: number, product: Product): Observable<Product> {
+    return this.httpClient.put<Product>(`${API_URL}/${id}`, product);
   }
 
   deleteProduct(id: number) {
-    this.products = this.products.filter(product => {
-      return product.id !== id;
-    });
+    return this.httpClient.delete<Product>(`${API_URL}/${id}`);
   }
 }

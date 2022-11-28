@@ -1,10 +1,6 @@
-<h1>Tạo sản phẩm mới</h1>
+<h1>Cập nhật sản phẩm</h1>
 <form [formGroup]="productForm" (ngSubmit)="updateProduct(id)">
   <table>
-    <tr>
-      <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
-    </tr>
     <tr>
       <td>Tên sản phẩm:</td>
       <td><input type="text" formControlName="name"></td>
@@ -19,7 +15,7 @@
     </tr>
     <tr>
       <td></td>
-      <td><button>Tạo mới</button></td>
+      <td><button>Cập nhật</button></td>
     </tr>
   </table>
 </form>

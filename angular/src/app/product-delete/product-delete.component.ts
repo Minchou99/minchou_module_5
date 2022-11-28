@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
-import {ProductService} from "../service/product.service";
-import {ActivatedRoute, Router, ParamMap} from "@angular/router";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {ProductService} from '../service/product.service';
+import {ActivatedRoute, Router, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-product-delete',
@@ -15,16 +15,11 @@ export class ProductDeleteComponent implements OnInit {
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private builder: FormBuilder) {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       this.id = +paramMap.get('id');
-      const product = this.getProduct(this.id);
-      this.productForm = new FormGroup({
-        id: new FormControl(product.id),
-        name: new FormControl(product.name),
-        price: new FormControl(product.price),
-        description: new FormControl(product.description),
-      });
+      this.getProduct(this.id);
     });
   }
 
@@ -32,12 +27,21 @@ export class ProductDeleteComponent implements OnInit {
   }
 
   getProduct(id: number) {
-    return this.productService.findById(id);
+    return this.productService.findById(id).subscribe(product => {
+      this.productForm = this.builder.group({
+        name: [product.name],
+        price: [product.price],
+        description: [product.description]
+      });
+    });
   }
 
   deleteProduct(id: number) {
-    this.productService.deleteProduct(id);
-    this.router.navigate(['/product/list']);
+    this.productService.deleteProduct(id).subscribe(() => {
+      this.router.navigateByUrl('/product/list');
+    }, e => {
+      console.log(e);
+    });
   }
 
 }
