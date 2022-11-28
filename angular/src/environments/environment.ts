@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiURL_product: 'http://localhost:3000/product',
-  apiURL_category: 'http://localhost:3000/category'
+  apiURL_category: 'http://localhost:3000/category',
+  apiURL_todo: 'http://localhost:3000/json'
 };
 
 /*
