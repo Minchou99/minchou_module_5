@@ -14,13 +14,11 @@ export class CategoryService {
   constructor(private httpClient: HttpClient) {
   }
 
-  private categories: Category[] = [];
-
   findAll(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(API_URL);
   }
 
-  savecategory(category: Category): Observable<Category> {
+  saveCategory(category: Category): Observable<Category> {
     return this.httpClient.post<Category>(API_URL, category);
   }
 

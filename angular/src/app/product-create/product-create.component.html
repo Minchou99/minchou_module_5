@@ -1,6 +1,6 @@
 <h1>Tạo sản phẩm mới</h1>
 <h2>{{message}}</h2>
-<form [formGroup]="productForm" (ngSubmit)="submit()">
+<form [formGroup]="productForm" *ngIf="productForm" (ngSubmit)="submit()">
   <table>
     <tr>
       <td>Tên sản phẩm:</td>

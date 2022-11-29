@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../service/product.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {CategoryService} from "../service/category.service";
+import {Category} from "../interface/category";
+import {Product} from "../interface/product";
 
 @Component({
   selector: 'app-product-edit',
@@ -10,12 +13,18 @@ import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 })
 export class ProductEditComponent implements OnInit {
   productForm: FormGroup;
+  categories: Category[] = [];
+  product: Product;
   id: number;
+  equals(o1: Category, o2: Category) {
+    return o1.id === o2.id;
+  }
 
   constructor(private productService: ProductService,
               private activatedRoute: ActivatedRoute,
               private router: Router,
-              private builder: FormBuilder) {
+              private builder: FormBuilder,
+              private categoryService: CategoryService) {
   }
 
   ngOnInit() {
@@ -23,14 +32,18 @@ export class ProductEditComponent implements OnInit {
       this.id = +paramMap.get('id');
       this.getProduct(this.id);
     });
+
+    this.getCategory();
   }
 
   getProduct(id: number) {
     return this.productService.findById(id).subscribe(product => {
+      this.product = product;
       this.productForm = this.builder.group({
         name: [product.name],
         price: [product.price],
-        description: [product.description]
+        description: [product.description],
+        category: [product.category]
       });
     });
   }
@@ -40,5 +53,19 @@ export class ProductEditComponent implements OnInit {
     this.productService.updateProduct(id, product).subscribe(() => {
       this.router.navigateByUrl('product/list');
     });
+  }
+
+  getCategory(){
+    this.categoryService.findAll().subscribe(data=>{
+      this.categories = data;
+    }, error => {
+      console.log('Loi roi');
+    }, ()=>{
+      console.log('Xong roi');
+    });
+  }
+
+  function(o1: any) {
+    return undefined;
   }
 }
